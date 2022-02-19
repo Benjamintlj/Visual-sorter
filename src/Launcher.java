@@ -6,6 +6,7 @@ public class Launcher {
 
     /**
      * calls the main program loop
+     *
      * @param args none are processed
      */
     public static void main(String[] args) {

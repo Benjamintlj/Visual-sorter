@@ -14,6 +14,7 @@ public class Point {
 
     /**
      * Creates rectangle and stores the index of the point
+     *
      * @param index sets the index of the point, used for determining the rectangle parameters
      */
     public Point(int index) {
@@ -39,7 +40,22 @@ public class Point {
     }
 
     /**
+     * @return returns the lists current state
+     */
+    public static ArrayList<Integer> getList() {
+        return list;
+    }
+
+    /**
+     * @param list updates the list with the value of the parameter
+     */
+    public static void setList(ArrayList<Integer> list) {
+        Point.list = list;
+    }
+
+    /**
      * returns the value of the point
+     *
      * @return value of the object in the list
      */
     public int getPointValue() {
@@ -61,19 +77,5 @@ public class Point {
     public Rectangle getRectangle() {
         updateRectangle();
         return rectangle;
-    }
-
-    /**
-     * @return returns the lists current state
-     */
-    public static ArrayList<Integer> getList() {
-        return list;
-    }
-
-    /**
-     * @param list updates the list with the value of the parameter
-     */
-    public static void setList(ArrayList<Integer> list) {
-        Point.list = list;
     }
 }

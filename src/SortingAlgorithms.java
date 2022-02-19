@@ -53,18 +53,19 @@ public class SortingAlgorithms implements Runnable {
         for (int i = 0; i < list.size(); i++) {
 
             for (int j = 0; j < list.size() - 1; j++) {
-                if(list.get(j) > list.get(j + 1)) {
+                if (list.get(j) > list.get(j + 1)) {
                     int temp = list.get(j);
                     list.set(j, list.get(j + 1));
                     list.set(j + 1, temp);
                     swap = true;
+
+                    // wait to render
                     Point.setList(list);
-                    // need to somehow render it here
                     Thread.currentThread().suspend();
                 }
             }
 
-            if(!swap) break;
+            if (!swap) break;
         }
     }
 
@@ -75,11 +76,11 @@ public class SortingAlgorithms implements Runnable {
         ArrayList<Integer> list = Point.getList();
 
         int jMin;
-        for (int i = 0; i < list.size()-1; i++) {
+        for (int i = 0; i < list.size() - 1; i++) {
             jMin = i;
 
             for (int j = i + 1; j < list.size(); j++) {
-                if(list.get(j) < list.get(jMin))
+                if (list.get(j) < list.get(jMin))
                     jMin = j;
             }
 
@@ -87,6 +88,8 @@ public class SortingAlgorithms implements Runnable {
                 int temp = list.get(i);
                 list.set(i, list.get(jMin));
                 list.set(jMin, temp);
+
+                // wait to render
                 Thread.currentThread().suspend();
                 Point.setList(list);
             }

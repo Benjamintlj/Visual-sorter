@@ -7,15 +7,16 @@ import java.util.ArrayList;
  */
 public class Window {
 
-    private Display display;
-    private ArrayList<Point> pointList;
-    private SortingAlgorithms sortingAlgorithms;
     Thread sort;
+    private final Display display;
+    private final ArrayList<Point> pointList;
+    private final SortingAlgorithms sortingAlgorithms;
 
     /**
      * inits all objects,
      * and also creates a new display
-     * @param width display width
+     *
+     * @param width  display width
      * @param height display height
      */
     public Window(int width, int height) {
@@ -36,7 +37,7 @@ public class Window {
      * used to update each of the objects for the next frame
      */
     public void update() {
-        if(sort.isAlive()) sort.resume();
+        if (sort.isAlive()) sort.resume();
     }
 
     /**
@@ -48,6 +49,7 @@ public class Window {
 
     /**
      * used to return a vector of rectangle objects, for rendering
+     *
      * @return returns the rectangle object vector
      */
     public ArrayList<Point> getPointList() {

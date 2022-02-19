@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.io.BufferedReader;
 import java.util.ArrayList;
 
 /**
@@ -10,11 +9,12 @@ import java.util.ArrayList;
  */
 public class Display extends JFrame {
 
-    private Canvas canvas;
+    private final Canvas canvas;
 
     /**
      * set up display with various settings
-     * @param width sets the display width
+     *
+     * @param width  sets the display width
      * @param height sets the display height
      */
     public Display(int width, int height) {
@@ -37,6 +37,7 @@ public class Display extends JFrame {
     /**
      * renders the window
      * Note: all objects are draw here, thus all window objects must be looped through, to be rendered
+     *
      * @param window
      */
     public void render(Window window) {
@@ -44,7 +45,7 @@ public class Display extends JFrame {
         Graphics graphics = bufferStrategy.getDrawGraphics();
 
         graphics.setColor(Color.BLACK);
-        graphics.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
+        graphics.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         graphics.setColor(Color.PINK);
 

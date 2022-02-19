@@ -5,23 +5,22 @@
  */
 public class ProgramLoop implements Runnable {
 
-    private Window window;
-
-    private boolean running;
     private final double updateRate;
-
+    private final Window window;
+    private boolean running;
     private long nextStatTime;
     private int framesPerSecond, updatesPerSecond;
 
 
     /**
      * inits window, which inits display, which creates a new display
-     * @param width display width
+     *
+     * @param width  display width
      * @param height display height
      */
     public ProgramLoop(int width, int height, int updatesPerASecond) {
         window = new Window(width, height);
-        updateRate = 1.0d/updatesPerASecond;
+        updateRate = 1.0d / updatesPerASecond;
     }
 
     /**
@@ -36,13 +35,13 @@ public class ProgramLoop implements Runnable {
         long currentTime, lastUpdate = System.currentTimeMillis();
         nextStatTime = System.currentTimeMillis() + 1000;
 
-        while(running) {
+        while (running) {
             currentTime = System.currentTimeMillis();
             double timeTakenToRenderLastFrame = (currentTime - lastUpdate) / 1000.0d;
             accumulator += timeTakenToRenderLastFrame;
             lastUpdate = currentTime;
 
-            while(accumulator > timeTakenToRenderLastFrame) {
+            while (accumulator > timeTakenToRenderLastFrame) {
                 update();
                 accumulator -= updateRate;
             }
@@ -72,7 +71,7 @@ public class ProgramLoop implements Runnable {
      * Prints FPS and UPS to the terminal
      */
     private void printStats() {
-        if(System.currentTimeMillis() > nextStatTime) {
+        if (System.currentTimeMillis() > nextStatTime) {
             System.out.println("FPS: " + framesPerSecond + " UPS: " + updatesPerSecond);
             framesPerSecond = 0;
             updatesPerSecond = 0;
