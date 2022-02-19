@@ -4,6 +4,10 @@ import java.awt.image.BufferStrategy;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
+/**
+ * @author benjaminlewis-jones
+ * draws all objects and sets all display settings
+ */
 public class Display extends JFrame {
 
     private Canvas canvas;
@@ -42,12 +46,6 @@ public class Display extends JFrame {
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 
-        //////////////////////////////////////////////////////////////
-        // All objects to be rendered must be listed below
-//        Rectangle rectangle = window.getRectangle();
-//        graphics.setColor(Color.PINK);
-//        graphics.fillRect((int)rectangle.getX(), (int)rectangle.getY(), (int)rectangle.getWidth(), (int)rectangle.getHeight());
-
         graphics.setColor(Color.PINK);
 
         ArrayList<Point> pointList = window.getPointList();
@@ -57,7 +55,6 @@ public class Display extends JFrame {
                     (int) point.rectangle.getWidth(),
                     (int) point.rectangle.getHeight());
         }
-        //////////////////////////////////////////////////////////////
 
 
         graphics.dispose();
